@@ -4,7 +4,11 @@
   <img src="docs/MINI_Daily_Developer_Security_Shield_Overview.png" alt="Tauhaulity: daily developer security shield with zero-dependency scanning, active behavioral containment, automated supply chain protection and a reversible storage recovery net" width="880">
 </p>
 
-### The 12-pillar project shield you will actually run every day
+<div align="center">
+
+# The 12-pillar project shield you will actually run every day
+
+</div>
 
 <p align="center"><img alt="Python" src="https://img.shields.io/badge/python-3.12%20%7C%203.13%20%7C%203.14%20%7C%203.15-3776AB?style=flat-square&logo=python&logoColor=white"> <img alt="Free-threaded" src="https://img.shields.io/badge/free--threaded-3.13t%20%7C%203.14t%20%7C%203.15t-2ea44f?style=flat-square"> <img alt="Rust" src="https://img.shields.io/badge/native--tier-rust%20cdylib-CE422B?style=flat-square&logo=rust&logoColor=white"> <img alt="Runtime dependencies" src="https://img.shields.io/badge/runtime%20deps-zero-2ea44f?style=flat-square"> <img alt="Operating systems" src="https://img.shields.io/badge/operating%20systems-2%20(Windows%20%2B%20Linux)-4c8eda?style=flat-square"> <img alt="Windows" src="https://img.shields.io/badge/Windows-10%20%7C%2011%20%7C%20Server-0078D6?style=flat-square&logo=windows&logoColor=white"> <img alt="Linux" src="https://img.shields.io/badge/Linux-supported-FCC624?style=flat-square&logo=linux&logoColor=black"> <img alt="WSL2" src="https://img.shields.io/badge/WSL2-Ubuntu%20%7C%20Debian-4c8eda?style=flat-square&logo=linux&logoColor=white"> <img alt="Tests" src="https://img.shields.io/badge/tests-1387%20cases-2ea44f?style=flat-square"> <img alt="Usage corpus" src="https://img.shields.io/badge/usage%20corpus-100%2F100%20journeys-2ea44f?style=flat-square"> <img alt="Red-team corpus" src="https://img.shields.io/badge/red--team%20corpus-100%2F100%20detected-2ea44f?style=flat-square"> <img alt="Runtime corpus" src="https://img.shields.io/badge/runtime%20corpus-30%2F30-2ea44f?style=flat-square"> <img alt="License" src="https://img.shields.io/badge/license-MIT-blue?style=flat-square"></p>
 
