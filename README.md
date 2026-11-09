@@ -157,9 +157,8 @@ What setup deliberately does **not** do:
 
 ---
 
-<details>
 <a id="command-reference"></a>
-<summary><strong>Command reference</strong> - all 27 commands, exit codes and files</summary>
+<details><summary><strong>Command reference</strong> - all 27 commands, exit codes and files</summary>
 
 | Command | Purpose | Mutates state? |
 |---|---|---|
@@ -214,9 +213,8 @@ What setup deliberately does **not** do:
 
 </details>
 
-<details>
 <a id="daily-workflows"></a>
-<summary><strong>Daily workflows</strong> - copy-paste recipes for each tool</summary>
+<details><summary><strong>Daily workflows</strong> - copy-paste recipes for each tool</summary>
 
 ### Recover a deleted file
 
@@ -387,9 +385,8 @@ tauhaulity audit . --export json     # scorecard.score, scorecard.grade, scoreca
 tauhaulity audit . --export md       # SEC 0 renders the same numbers as a table
 ```
 
-<details>
 <a id="does-it-survive-real-use"></a>
-<summary><strong>Does it survive real use</strong> - one hundred scripted command journeys, exit code and output checked</summary>
+<details><summary><strong>Does it survive real use</strong> - one hundred scripted command journeys, exit code and output checked</summary>
 
 Detection tests prove the scanners work; this corpus proves the **product** works. One hundred scripted journeys run the shipped command line as a real subprocess inside a real project tree, including a directory whose name contains a space. Each journey asserts the exit code, the files that must appear, the output that must contain what matters, and the output that must never appear (no stack trace, no raw secret, no false success).
 
@@ -417,7 +414,7 @@ This corpus found three real product defects on its first run: a stale flag in t
 
 </details>
 
-## Framework mapping and hardening actions
+<details><summary><strong>Framework mapping and hardening actions</strong> - MITRE ATT&CK and OWASP mapping plus the hardening list</summary>
 
 Two sections close the dossier, both derived from the evidence rather than from a static checklist.
 
@@ -437,9 +434,10 @@ Two sections close the dossier, both derived from the evidence rather than from 
 
 The module docstring is explicit that this is a translation layer: mapping an observation to T1552.001 does not attest that a control is implemented or tested. Where a pillar has no honest mapping, the row is omitted rather than padded.
 
-<details>
+</details>
+
 <a id="containment-running-untrusted-code-under-enforcement"></a>
-<summary><strong>Containment: running untrusted code under enforcement</strong> - what the shield allows, what it refuses and how to reverse a file decision</summary>
+<details><summary><strong>Containment: running untrusted code under enforcement</strong> - what the shield allows, what it refuses and how to reverse a file decision</summary>
 
 Detection tells you what happened. Containment decides what is allowed to happen. `tauhaulity shield` runs a command with a provenance-aware PEP-578 guard armed:
 
@@ -482,7 +480,7 @@ tauhaulity quarantine purge --id <item>            # explicit deletion only, nev
 
 </details>
 
-## Threat-informed design: what this version was built against
+<details><summary><strong>Threat-informed design: what this version was built against</strong> - the primary sources behind the 0.3.0 work</summary>
 
 The 0.3.0 work was driven by primary sources rather than by a feature list.
 
@@ -503,9 +501,10 @@ The 0.3.0 work was driven by primary sources rather than by a feature list.
 
 The coverage of this mapping is measured, not asserted: `scripts/threat_feed_check.py` replays the cached feed sample and prints which attack class each rule addresses.
 
-<details>
+</details>
+
 <a id="dependency-advisories-from-osv"></a>
-<summary><strong>Dependency advisories from OSV</strong> - known CVEs in the versions you actually ship, with an offline cache</summary>
+<details><summary><strong>Dependency advisories from OSV</strong> - known CVEs in the versions you actually ship, with an offline cache</summary>
 
 A scanner that looks only at your own code misses the most common real-world entry point: a dependency with a known CVE. Tauhaulity answers that with the OSV database, which aggregates advisories from GitHub, PyPI and the OpenSSF.
 
@@ -527,9 +526,8 @@ The dependency *audit* for typosquats, unpinned ranges and direct URLs is local 
 
 </details>
 
-<details>
 <a id="how-much-protection-does-this-actually-give"></a>
-<summary><strong>How much protection does this actually give?</strong> - Measured detection versus prevention, one row per scenario</summary>
+<details><summary><strong>How much protection does this actually give?</strong> - Measured detection versus prevention, one row per scenario</summary>
 
 Detection is not prevention, and a tool that blurs the two is worse than none. The repository ships a harness that attacks its own guarantees and prints what happened:
 
@@ -583,9 +581,8 @@ So it is a strong detector with a narrow containment layer. It works best on cre
 
 </details>
 
-<details>
 <a id="threat-coverage-what-this-stops-and-what-it-does-not"></a>
-<summary><strong>Threat coverage: what this stops and what it does not</strong> - one row per threat class, including the classes it cannot cover</summary>
+<details><summary><strong>Threat coverage: what this stops and what it does not</strong> - one row per threat class, including the classes it cannot cover</summary>
 
 Some 2026 threats a developer tool can act on and some it cannot. A team that assumes coverage it lacks is worse off than one that knows where the boundary sits, so both groups are listed below.
 
@@ -610,9 +607,8 @@ Its scope is narrower than an EDR and its evidence is deeper than a linter's: it
 
 </details>
 
-<details>
 <a id="the-12-pillars"></a>
-<summary><strong>The 12 pillars</strong> - What each pillar looks at, and what it does not</summary>
+<details><summary><strong>The 12 pillars</strong> - What each pillar looks at, and what it does not</summary>
 
 | # | Pillar | What the probe measures | Statuses |
 |---|---|---|---|
@@ -633,9 +629,8 @@ Its scope is narrower than an EDR and its evidence is deeper than a linter's: it
 
 </details>
 
-<details>
 <a id="enforced-vs-reported"></a>
-<summary><strong>Enforced vs reported</strong> - Which claims are enforced by code, and which are advisory</summary>
+<details><summary><strong>Enforced vs reported</strong> - Which claims are enforced by code, and which are advisory</summary>
 
 | Mechanism | Real behaviour |
 |---|---|
@@ -718,9 +713,8 @@ The parser raises `FormError` with the line number instead of silently ignoring 
 
 ---
 
-<details>
 <a id="architecture"></a>
-<summary><strong>Architecture</strong> - Module layout, scan flow, core primitives, adding a pillar</summary>
+<details><summary><strong>Architecture</strong> - Module layout, scan flow, core primitives, adding a pillar</summary>
 
 ```text
 tauhaulity/
@@ -833,7 +827,7 @@ Build artifacts are not shipped: a clean checkout starts on the ctypes tier and 
 
 ---
 
-## Supported operating systems
+<details><summary><strong>Supported operating systems</strong> - Windows and Linux families verified end to end</summary>
 
 Two operating system families, both verified end to end. The matrix below is what was executed, not what is theoretically supported.
 
@@ -846,9 +840,10 @@ Two operating system families, both verified end to end. The matrix below is wha
 
 macOS is not supported and is not claimed: the platform probe would classify it as `darwin` and every pillar would fall back to its honest "could not observe" path.
 
-<details>
+</details>
+
 <a id="verified-test-matrix"></a>
-<summary><strong>Verified test matrix</strong> - Interpreter, platform and suite results</summary>
+<details><summary><strong>Verified test matrix</strong> - Interpreter, platform and suite results</summary>
 
 Measured on Windows 11 build 10.0.26100 and WSL2 with Ubuntu (Python 3.14.4) and Debian (Python 3.13.5). The whole tree collects 1387 tests; every platform row below is a full default run that deselects the slow and corpus markers (248 cases), and both marker sets are run separately and pass.
 
@@ -913,9 +908,8 @@ Every item below is a boundary of this version. Where the limit cannot be fixed 
 | Free-threaded builds | Verified on 3.13t, 3.14t and 3.15t. The PID-verified seqlock has no true no-GIL stress harness beyond the suite, so a race under sustained parallel load is not proven impossible |
 | Release artifacts are unsigned | The wheel and zipapp ship with SHA256SUMS, but there is no code signing, no attestation and no PyPI publication in this repository |
 
-<details>
 <a id="detection-boundaries"></a>
-<summary><strong>Detection boundaries</strong> - What the detectors cannot see, and why</summary>
+<details><summary><strong>Detection boundaries</strong> - What the detectors cannot see, and why</summary>
 
 | Limit | Detail |
 |---|---|
@@ -938,9 +932,8 @@ Every item below is a boundary of this version. Where the limit cannot be fixed 
 
 </details>
 
-<details>
 <a id="operational"></a>
-<summary><strong>Operational</strong> - Limits that come from the deployment rather than the code</summary>
+<details><summary><strong>Operational</strong> - Limits that come from the deployment rather than the code</summary>
 
 | Limit | Detail |
 |---|---|
@@ -955,9 +948,8 @@ Every item below is a boundary of this version. Where the limit cannot be fixed 
 </details>
 
 
-<details>
 <a id="development"></a>
-<summary><strong>Development</strong> - Repository layout, running the suites, rebuilding assets and releases</summary>
+<details><summary><strong>Development</strong> - Repository layout, running the suites, rebuilding assets and releases</summary>
 
 ### Repository at a glance
 
@@ -1088,9 +1080,8 @@ python -m pytest tests/test_release_artifacts.py
 
 </details>
 
-<details>
 <a id="troubleshooting"></a>
-<summary><strong>Troubleshooting</strong> - Symptom, cause and fix for the failures a user actually hits</summary>
+<details><summary><strong>Troubleshooting</strong> - Symptom, cause and fix for the failures a user actually hits</summary>
 
 | Symptom | Cause | Fix |
 |---|---|---|
