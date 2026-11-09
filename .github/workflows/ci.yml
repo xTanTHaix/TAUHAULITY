@@ -9,6 +9,8 @@ on:
 
 permissions:
   contents: read
+  actions: read
+  security-events: write
 
 concurrency:
   group: ci-${{ github.ref }}
@@ -59,3 +61,74 @@ jobs:
       - name: cargo test
         working-directory: rust_silicon_shield
         run: cargo test
+
+  codeql:
+    name: CodeQL / Python
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [python]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v3
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended,security-and-quality
+
+      - name: Set up Python for autobuild
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+        with:
+          category: "/language:${{ matrix.language }}"
+
+  osv:
+    name: OSV Scanner / SBOM
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      actions: read
+      security-events: write
+    steps:
+      - name: Checkout with an SCM history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Collect package metadata
+        uses: anchore/sbom-action@v0
+        with:
+          path: ./
+          format: spdx-json
+          output-file: sbom.spdx.json
+          only-changed: false
+
+      - name: Scan SBOM for vulnerabilities
+        uses: anchore/scan-action@v6
+        with:
+          path: ./sbom.spdx.json
+          format: sarif
+          output-file: osv.sarif
+          fail-build: false
+          severity-include: low,medium,high,critical
+          only-fixed: false
+
+      - name: Upload scan results to GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        with:
+          sarif_file: osv.sarif
+        if: always()
