@@ -120,7 +120,7 @@ jobs:
       - name: Scan SBOM for vulnerabilities
         uses: anchore/scan-action@v6
         with:
-          path: ./sbom.spdx.json
+          path: "sbom:./sbom.spdx.json"
           format: sarif
           output-file: osv.sarif
           fail-build: false
