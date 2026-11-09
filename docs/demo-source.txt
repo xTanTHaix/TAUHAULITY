@@ -1,0 +1,7 @@
+demo source: live run
+frames: 60
+duration: 13.7s
+canvas: 960x420, palette 16 colours
+timeline: typing 40ms/frame, reveal 80ms/frame, final hold 900ms
+commands: tauhaulity | tauhaulity suppress list . | tauhaulity honeytoken deploy . | tauhaulity verify tauhaulity_report.md
+static diagrams: generated via scripts/demo_diagrams.py

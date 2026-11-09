@@ -1,0 +1,31 @@
+[package]
+name = "tauhaulity_silicon_shield"
+version = "0.2.0"
+edition = "2021"
+rust-version = "1.74"
+description = "Zero-crate native core for TAUHAULITY: SHA-256, reflected CRC-64, Shannon entropy and a monotonic hardware counter behind a C ABI"
+license = "Apache-2.0 OR MIT"
+publish = false
+
+# This package is its own workspace root so a future parent manifest can never
+# silently absorb the crate (and its target directory) into a larger workspace.
+[workspace]
+
+[lib]
+name = "tauhaulity_silicon_shield"
+crate-type = ["cdylib", "rlib"]
+path = "src/lib.rs"
+
+[[bin]]
+name = "tauhaulity_shield_probe"
+path = "src/main.rs"
+
+# Zero runtime dependencies: only the Rust standard library is allowed, so the
+# crate builds and tests on an offline machine with a bare toolchain.
+[dependencies]
+
+[profile.release]
+opt-level = 3
+lto = "fat"
+codegen-units = 1
+strip = "debuginfo"

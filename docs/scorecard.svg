@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" width="960" height="540" role="img" aria-labelledby="diagram-title diagram-desc">
+  <title id="diagram-title">Tauhaulity security scorecard: 81 of 100, grade C, aggregate risk 10.00 of 10.00, 2 pillar(s) deducted</title>
+  <desc id="diagram-desc">Generated from a real audit. The card shows the bounded score and letter grade, the aggregate risk gauge with its critical band, and the deduction ledger as one bar segment per pillar that lost points, coloured by severity, with the evidence text. The verdict comes from the worst pillar status; the gauge band is a drawing guide.</desc>
+  <defs>
+    <linearGradient id="card-face" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#161b22" stop-opacity="0.92"/>
+      <stop offset="1" stop-color="#161b22" stop-opacity="0.58"/>
+    </linearGradient>
+    <clipPath id="ledger-clip">
+      <rect x="60" y="304" width="840" height="26" rx="8" fill="#161b22"/>
+    </clipPath>
+  </defs>
+  <rect x="0" y="0" width="960" height="540" fill="#0b0f14"/>
+  <rect x="24" y="20" width="912" height="500" rx="18" fill="url(#card-face)" stroke="#30363d" stroke-width="1.5"/>
+  <rect x="724" y="46" width="188" height="34" rx="17" fill="#f85149" fill-opacity="0.12" stroke="#f85149"/>
+  <circle cx="748" cy="63" r="4" fill="#f85149"/>
+  <rect x="56" y="116" width="848" height="1" fill="#30363d"/>
+  <rect x="250" y="164" width="132" height="44" rx="10" fill="#d29922"/>
+  <rect x="480" y="164" width="424" height="18" rx="9" fill="#161b22" stroke="#30363d"/>
+  <rect x="776.8" y="164" width="127.2" height="18" rx="9" fill="#f85149" fill-opacity="0.28"/>
+  <rect x="900.5" y="158" width="7" height="30" rx="3.5" fill="#f85149"/>
+  <rect x="56" y="262" width="848" height="1" fill="#30363d"/>
+  <rect x="60" y="304" width="840" height="26" rx="8" fill="#161b22" stroke="#30363d"/>
+  <g clip-path="url(#ledger-clip)">
+    <rect x="60" y="304" width="787.5" height="26" fill="#f85149"/>
+    <rect x="847.5" y="304" width="52.5" height="26" fill="#58a6ff"/>
+    <rect x="846.75" y="304" width="1.5" height="26" fill="#0b0f14"/>
+  </g>
+  <rect x="60" y="387" width="11" height="11" rx="2.5" fill="#f85149"/>
+  <rect x="60" y="413" width="11" height="11" rx="2.5" fill="#58a6ff"/>
+  <rect x="60" y="339" width="10" height="10" rx="2" fill="#f85149"/>
+  <rect x="146" y="339" width="10" height="10" rx="2" fill="#58a6ff"/>
+  <rect x="56" y="464" width="848" height="1" fill="#30363d"/>
+  <g font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+    <text x="60" y="70" font-size="22" font-weight="600" letter-spacing="0.5" fill="#c9d1d9">SECURITY SCORECARD</text>
+    <text x="60" y="93" font-size="12.5" fill="#8b949e">score, grade and the deduction ledger, from one read only scan</text>
+    <text x="60" y="146" font-size="10.5" letter-spacing="1.6" fill="#8b949e">SCORE</text>
+    <text x="316" y="232" font-size="11.5" text-anchor="middle" letter-spacing="2" fill="#d29922">FAIR</text>
+    <text x="480" y="146" font-size="10.5" letter-spacing="1.6" fill="#8b949e">AGGREGATE RISK</text>
+    <text x="480" y="200" font-size="9.5" text-anchor="start" fill="#8b949e">0</text>
+    <text x="692" y="200" font-size="9.5" text-anchor="middle" fill="#8b949e">5</text>
+    <text x="904" y="200" font-size="9.5" text-anchor="end" fill="#8b949e">10</text>
+    <text x="60" y="290" font-size="11" letter-spacing="1.6" fill="#8b949e">DEDUCTION LEDGER</text>
+    <text x="76" y="348" font-size="10" fill="#8b949e">critical</text>
+    <text x="162" y="348" font-size="10" fill="#8b949e">info</text>
+    <text x="84" y="372" font-size="9.5" letter-spacing="1.2" fill="#8b949e">PILLAR</text>
+    <text x="176" y="372" font-size="9.5" text-anchor="end" letter-spacing="1.2" fill="#8b949e">POINTS</text>
+    <text x="200" y="372" font-size="9.5" letter-spacing="1.2" fill="#8b949e">SEVERITY</text>
+    <text x="276" y="372" font-size="9.5" letter-spacing="1.2" fill="#8b949e">EVIDENCE</text>
+    <text x="200" y="396" font-size="10.5" fill="#f85149">critical</text>
+    <text x="276" y="396" font-size="10.5" fill="#8b949e">hook gate MISSING; 1 credential candidate(s) redacted; 0...</text>
+    <text x="200" y="422" font-size="10.5" fill="#58a6ff">info</text>
+    <text x="276" y="422" font-size="10.5" fill="#8b949e">undo ring 512 MB armed (journal not yet created), 0...</text>
+    <text x="904" y="488" font-size="10" text-anchor="end" fill="#8b949e">read only scan of a throwaway project, one bounded score</text>
+  </g>
+  <g font-family="ui-monospace, SFMono-Regular, Consolas, Menlo, monospace">
+    <text x="762" y="67.5" font-size="12" font-weight="600" letter-spacing="0.6" fill="#f85149">VERDICT CRITICAL</text>
+    <text x="58" y="222" font-size="76" font-weight="700" letter-spacing="-2" fill="#c9d1d9">81</text>
+    <text x="163.2" y="220" font-size="19" fill="#8b949e">/ 100</text>
+    <text x="316" y="193" font-size="19" font-weight="700" text-anchor="middle" fill="#0b0f14">GRADE C</text>
+    <text x="904" y="146" font-size="12.5" text-anchor="end" fill="#f85149">10.00 / 10.00</text>
+    <text x="840.4" y="177.5" font-size="9" text-anchor="middle" letter-spacing="0.8" fill="#f85149">CRITICAL BAND</text>
+    <text x="904" y="290" font-size="11" text-anchor="end" fill="#8b949e">19.2 POINTS LOST ACROSS 2 PILLAR(S)</text>
+    <text x="76" y="321.5" font-size="12" font-weight="700" fill="#0b0f14">P11 -18.0</text>
+    <text x="84" y="396" font-size="11.5" font-weight="600" fill="#f85149">P11</text>
+    <text x="176" y="396" font-size="11.5" text-anchor="end" fill="#c9d1d9">-18.0</text>
+    <text x="84" y="422" font-size="11.5" font-weight="600" fill="#58a6ff">P08</text>
+    <text x="176" y="422" font-size="11.5" text-anchor="end" fill="#c9d1d9">-1.2</text>
+    <text x="60" y="488" font-size="10.5" fill="#8b949e">TAUHAULITY 0.4.0</text>
+  </g>
+</svg>

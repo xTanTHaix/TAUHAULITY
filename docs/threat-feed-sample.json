@@ -1,0 +1,236 @@
+{
+  "source": "OpenSSF malicious-packages feed",
+  "captured_at": "2026-11-09T08:38:59Z",
+  "records": [
+    {
+      "package": "0-8",
+      "record_id": "MAL-2025-2925",
+      "modified": "2025-03-28T13:05:11Z",
+      "summary": "Malicious code in 0-8 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "0requests",
+      "record_id": "MAL-2026-15859",
+      "modified": "2026-09-04T00:47:46.156672516Z",
+      "summary": "Malicious code in 0requests (PyPI)",
+      "reasons": [
+        "exfiltration-env-variables",
+        "typosquatting"
+      ],
+      "covered_by": [
+        "p06 env_secret_harvesting",
+        "p06 dependency typosquat audit"
+      ],
+      "campaign": "2026-09-0requests"
+    },
+    {
+      "package": "0x000testqwe",
+      "record_id": "MAL-2025-6428",
+      "modified": "2026-03-19T12:23:25Z",
+      "summary": "Malicious code in 0x000testqwe (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": "GENERIC-standard-pypi-install-pentest"
+    },
+    {
+      "package": "0xfighter3",
+      "record_id": "MAL-2026-14525",
+      "modified": "2026-08-26T07:18:30Z",
+      "summary": "Malicious code in 0xfighter3 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": "GENERIC-standard-pypi-install-pentest"
+    },
+    {
+      "package": "123bla",
+      "record_id": "MAL-2024-10238",
+      "modified": "2025-12-11T09:27:52Z",
+      "summary": "Malicious code in 123bla (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": "GENERIC-standard-pypi-install-pentest"
+    },
+    {
+      "package": "1337test",
+      "record_id": "MAL-2024-4720",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 1337test (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "18923aa",
+      "record_id": "MAL-2024-4721",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 18923aa (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "191239aa",
+      "record_id": "MAL-2024-4722",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 191239aa (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "1923tsl1",
+      "record_id": "MAL-2024-4723",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 1923tsl1 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "1h1",
+      "record_id": "MAL-2026-18188",
+      "modified": "2026-10-22T23:40:36.035200997Z",
+      "summary": "Malicious code in 1h1 (PyPI)",
+      "reasons": [
+        "typosquatting"
+      ],
+      "covered_by": [
+        "p06 dependency typosquat audit"
+      ],
+      "campaign": "2026-10-semvver"
+    },
+    {
+      "package": "1q847",
+      "record_id": "MAL-2026-443",
+      "modified": "2026-01-21T18:25:06Z",
+      "summary": "Malicious code in 1q847 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": "2026-01-old-1q847"
+    },
+    {
+      "package": "233-misc",
+      "record_id": "MAL-2024-4724",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 233-misc (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "3-0",
+      "record_id": "MAL-2025-2926",
+      "modified": "2025-03-28T13:05:12Z",
+      "summary": "Malicious code in 3-0 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "3m-promo-gen-api",
+      "record_id": "MAL-2024-4725",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 3m-promo-gen-api (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "3m-promo-link-gen",
+      "record_id": "MAL-2024-4726",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 3m-promo-link-gen (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "3web-py",
+      "record_id": "MAL-2024-9934",
+      "modified": "2025-12-11T09:27:52Z",
+      "summary": "Malicious code in 3web-py (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": "funcaptcha-ru"
+    },
+    {
+      "package": "3web",
+      "record_id": "MAL-2024-9933",
+      "modified": "2025-12-11T09:27:52Z",
+      "summary": "Malicious code in 3web (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": "funcaptcha-ru"
+    },
+    {
+      "package": "4123",
+      "record_id": "MAL-2024-4727",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 4123 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "48484efej8id",
+      "record_id": "MAL-2024-11512",
+      "modified": "2024-12-09T06:49:39Z",
+      "summary": "Malicious code in 48484efej8id (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "7-0",
+      "record_id": "MAL-2025-2927",
+      "modified": "2025-03-28T13:05:12Z",
+      "summary": "Malicious code in 7-0 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "7miners",
+      "record_id": "MAL-2026-2670",
+      "modified": "2026-04-14T21:55:03Z",
+      "summary": "Malicious code in 7miners (PyPI)",
+      "reasons": [
+        "typosquatting"
+      ],
+      "covered_by": [
+        "p06 dependency typosquat audit"
+      ],
+      "campaign": "2026-03-pipipipi"
+    },
+    {
+      "package": "90456984689490856",
+      "record_id": "MAL-2024-4728",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in 90456984689490856 (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    },
+    {
+      "package": "a-oder",
+      "record_id": "MAL-2024-12186",
+      "modified": "2025-12-11T09:27:52Z",
+      "summary": "Malicious code in a-oder (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": "2024-07-weaponized-golden"
+    },
+    {
+      "package": "a1rn",
+      "record_id": "MAL-2024-4729",
+      "modified": "2024-10-24T01:01:57Z",
+      "summary": "Malicious code in a1rn (PyPI)",
+      "reasons": [],
+      "covered_by": [],
+      "campaign": ""
+    }
+  ]
+}

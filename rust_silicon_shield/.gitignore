@@ -1,0 +1,4 @@
+# Build artifacts of the Rust crate stay out of version control: the loader
+# searches these directories at runtime, but a binary built on one host must not
+# be distributed to another (a Linux .so is useless on Windows and vice versa).
+/target/

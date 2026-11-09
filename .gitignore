@@ -1,0 +1,96 @@
+# Tauhaulity ignore rules.
+#
+# The release artifacts in dist/ are deliberately NOT ignored: the wheel and the
+# zipapp are shipped so a user can run or install the tool without a build step.
+# Everything below is either reproducible build output, per-machine runtime state,
+# or an editor and operating system artifact.
+
+# --------------------------------------------------------------- Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+build/
+develop-eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+share/python-wheels/
+*.manifest
+*.spec
+pip-wheel-metadata/
+MANIFEST
+
+# ------------------------------------------------- build output (reproducible)
+rust_silicon_shield/target/
+.tooling/
+.toolchains/
+toolchains/
+dist/*.tmp
+dist/*.tmp.*
+
+# ------------------------------------------------------------- virtual envs
+.venv/
+venv/
+ENV/
+env/
+.python-version
+.pyenv/
+.asdf/
+
+# ----------------------------------------------------- runtime state and logs
+# The tool writes its journal, dossiers, baselines and suppressions here while it
+# runs; none of it belongs in version control.
+.tauhaulity/
+tauhaulity_report.md
+tauhaulity_report.txt
+tauhaulity_report.json
+*.frames
+*.log
+
+# --------------------------------------------------------------- test output
+.pytest_cache/
+.benchmarks/
+.coverage
+.coverage.*
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.cache/
+nosetests.xml
+junit*.xml
+hypothesis/
+
+# --------------------------------------------------------------- type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.ruff_cache/
+.pytype/
+.pyre/
+
+# ------------------------------------------------------ editors and platforms
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+*.code-workspace
+
+# ------------------------------------------------------------ local tooling
+# Scratch files used while working on this repository.
+.readme_recovered.md
+.readme_from_wheel.md
+.restore_readme.py
+*.local
+*.bak
+.tmp/
