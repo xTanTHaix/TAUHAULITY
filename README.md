@@ -157,7 +157,9 @@ What setup deliberately does **not** do:
 
 ---
 
-## Command reference
+<details>
+<a id="command-reference"></a>
+<summary><strong>Command reference</strong> - all 27 commands, exit codes and files</summary>
 
 | Command | Purpose | Mutates state? |
 |---|---|---|
@@ -210,9 +212,11 @@ What setup deliberately does **not** do:
 | `baseline` | Explicit and reversible; `--reset` removes the allowlist |
 | `verify` | Constant-time comparisons; never echoes key material |
 
----
+</details>
 
-## Daily workflows
+<details>
+<a id="daily-workflows"></a>
+<summary><strong>Daily workflows</strong> - copy-paste recipes for each tool</summary>
 
 ### Recover a deleted file
 
@@ -278,6 +282,8 @@ tauhaulity verify report.md --key 64-hex-chars      # shared secret
 tauhaulity verify report.md --no-machine-key        # require an explicit or env key
 ```
 
+</details>
+
 ---
 
 ## What the detectors actually catch
@@ -337,9 +343,7 @@ python -m pytest tests/test_runtime_corpus.py -o addopts= -q
 
 `tauhaulity baseline` accepts the current findings, including history findings, so a repository with a known legacy leak can still produce a clean signal without hiding anything new.
 
-<details>
-<a id="runtime-protection"></a>
-<summary><strong>Runtime protection added in 0.2.0</strong> - four capabilities that act on live behaviour</summary>
+<details><summary><strong>Runtime protection added in 0.2.0</strong> - four capabilities that act on live behaviour</summary>
 
 Beyond the posture pillars, four capabilities now act on live behaviour.
 
@@ -434,7 +438,7 @@ Two sections close the dossier, both derived from the evidence rather than from 
 The module docstring is explicit that this is a translation layer: mapping an observation to T1552.001 does not attest that a control is implemented or tested. Where a pillar has no honest mapping, the row is omitted rather than padded.
 
 <details>
-<a id="containment"></a>
+<a id="containment-running-untrusted-code-under-enforcement"></a>
 <summary><strong>Containment: running untrusted code under enforcement</strong> - what the shield allows, what it refuses and how to reverse a file decision</summary>
 
 Detection tells you what happened. Containment decides what is allowed to happen. `tauhaulity shield` runs a command with a provenance-aware PEP-578 guard armed:
@@ -580,7 +584,7 @@ So it is a strong detector with a narrow containment layer. It works best on cre
 </details>
 
 <details>
-<a id="threat-coverage"></a>
+<a id="threat-coverage-what-this-stops-and-what-it-does-not"></a>
 <summary><strong>Threat coverage: what this stops and what it does not</strong> - one row per threat class, including the classes it cannot cover</summary>
 
 Some 2026 threats a developer tool can act on and some it cannot. A team that assumes coverage it lacks is worse off than one that knows where the boundary sits, so both groups are listed below.

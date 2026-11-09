@@ -163,8 +163,12 @@ def test_replaced_is_detected_by_inode_change(tmp_path: Path) -> None:
     target = report.deployed[0]
     path = root / target.rel_path
     payload = path.read_bytes()
-    path.unlink()
-    path.write_bytes(payload)  # identical bytes, new inode
+    # Atomic replace: the incoming file exists while the decoy still exists, so its
+    # inode is necessarily different. Unlinking and recreating in place can reuse
+    # the freed inode on some filesystems and would not exercise this branch.
+    source = tmp_path / "incoming.bin"
+    source.write_bytes(payload)  # identical bytes, different inode
+    os.replace(source, path)
     events = watcher.scan()
     assert any(event.kind == "canary_replaced" for event in events), events
 
