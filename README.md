@@ -1,4 +1,4 @@
-# TAUHAULITY
+<h1 align="center">TAUHAULITY</h1>
 
 <p align="center">
   <img src="docs/MINI_Daily_Developer_Security_Shield_Overview.png" alt="Tauhaulity: daily developer security shield with zero-dependency scanning, active behavioral containment, automated supply chain protection and a reversible storage recovery net" width="880">
