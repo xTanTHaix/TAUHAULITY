@@ -97,38 +97,14 @@ jobs:
           category: "/language:${{ matrix.language }}"
 
   osv:
-    name: OSV Scanner / SBOM
-    runs-on: ubuntu-latest
+    name: OSV Scanner
+    uses: google/osv-scanner-action/.github/workflows/osv-scanner-reusable.yml@v2.7.1
     permissions:
       contents: read
       actions: read
       security-events: write
-    steps:
-      - name: Checkout with an SCM history
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Collect package metadata
-        uses: anchore/sbom-action@v0
-        with:
-          path: ./
-          format: spdx-json
-          output-file: sbom.spdx.json
-          only-changed: false
-
-      - name: Scan SBOM for vulnerabilities
-        uses: anchore/scan-action@v6
-        with:
-          path: "sbom:./sbom.spdx.json"
-          format: sarif
-          output-file: osv.sarif
-          fail-build: false
-          severity-include: low,medium,high,critical
-          only-fixed: false
-
-      - name: Upload scan results to GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: osv.sarif
-        if: always()
+    with:
+      scan-args: |-
+        --recursive
+        ./
+      fail-on-vuln: false

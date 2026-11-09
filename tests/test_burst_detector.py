@@ -85,6 +85,12 @@ for index in range(5):
     (project / ("warm_%d.py" % index)).write_text("x", encoding="utf-8")
 for index in range(5):
     os.rename(project / ("warm_%d.py" % index), project / ("warm_%d_b.py" % index))
+for index in range(5, 14):
+    (project / ("warm_%d.py" % index)).write_text("x", encoding="utf-8")
+    os.rename(project / ("warm_%d.py" % index), project / ("warm_%d_b.py" % index))
+time.sleep(window + 0.1)
+for index in range(14):
+    os.rename(project / ("warm_%d_b.py" % index), project / ("warm_%d_c.py" % index))
 time.sleep(window + 0.1)
 outcome["before"] = audit_hook.stats()["burst_verdicts"]
 files = []
