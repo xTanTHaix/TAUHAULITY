@@ -4,7 +4,7 @@ build-backend = ""
 
 [project]
 name = "tauhaulity"
-version = "0.4.0"
+version = "0.4.1"
 description = "12-pillar project safety scan with containment, OSV advisories, quarantine, undo net and dossier exporter"
 readme = "README.md"
 requires-python = ">=3.12"

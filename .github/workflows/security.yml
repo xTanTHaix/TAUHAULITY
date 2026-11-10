@@ -1,0 +1,115 @@
+name: Security lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  workflow-security:
+    name: Workflow security (zizmor + actionlint)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install zizmor
+        run: python -m pip install --upgrade pip zizmor
+
+      - name: zizmor
+        continue-on-error: true
+        run: zizmor --format plain .github/workflows
+
+      - name: actionlint
+        uses: raven-actions/actionlint@v2.2.0
+        with:
+          fail-on-error: false
+
+  python-sast:
+    name: Python SAST (bandit + ruff)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Python
+        uses: actions/setup-python@v7
+        with:
+          python-version: "3.13"
+
+      - name: Install tools
+        run: python -m pip install --upgrade pip bandit ruff
+
+      - name: bandit
+        continue-on-error: true
+        run: bandit -q -r tauhaulity
+
+      - name: ruff security rules
+        continue-on-error: true
+        run: ruff check --select S --output-format concise tauhaulity scripts
+
+  secrets-and-files:
+    name: Secret and file scanning (gitleaks + trivy)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout with full history
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: gitleaks
+        continue-on-error: true
+        uses: gitleaks/gitleaks-action@v3.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_ENABLE_COMMENTS: "false"
+          GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "true"
+
+      - name: Trivy filesystem scan
+        continue-on-error: true
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scanners: secret,misconfig,vuln
+          severity: LOW,MEDIUM,HIGH,CRITICAL
+          exit-code: "0"
+          format: table
+          output: trivy-fs.txt
+
+      - name: Show Trivy report
+        if: always()
+        run: cat trivy-fs.txt || true
+
+  rust-audit:
+    name: Rust advisory (cargo audit)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install cargo audit
+        run: cargo install --locked cargo-audit
+
+      - name: cargo audit
+        continue-on-error: true
+        working-directory: rust_silicon_shield
+        run: cargo audit || true

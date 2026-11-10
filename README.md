@@ -14,6 +14,8 @@
 
 <p align="center"><a href="https://osv.dev"><img alt="OSV" src="https://img.shields.io/badge/dependency%20advisories-OSV-4285F4?style=flat-square&logo=google&logoColor=white"></a> <a href="https://github.com/ossf/malicious-packages"><img alt="OpenSSF malicious packages" src="https://img.shields.io/badge/threat%20feed-OpenSSF%20malicious--packages-2ea44f?style=flat-square&logo=openssf&logoColor=white"></a> <a href="https://www.cisa.gov/known-exploited-vulnerabilities-catalog"><img alt="CISA KEV" src="https://img.shields.io/badge/threat%20intel-CISA%20KEV%202026.11.06-1f6feb?style=flat-square"></a> <a href="#how-much-protection-does-this-actually-give"><img alt="Measured detection and prevention" src="https://img.shields.io/badge/measured-26%20attack%20scenarios-ffd166?style=flat-square"></a> <img alt="Offline" src="https://img.shields.io/badge/network-optional%20by%20design-2ea44f?style=flat-square"> <img alt="Telemetry" src="https://img.shields.io/badge/telemetry-none-2ea44f?style=flat-square"> <img alt="MITRE ATT&CK" src="https://img.shields.io/badge/framework-MITRE%20ATT%26CK%20%2B%20OWASP%20Top%2010-8b949e?style=flat-square"></p>
 
+<p align="center"><a href="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/ci.yml/badge.svg?branch=main"></a> <a href="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/codeql.yml"><img alt="CodeQL" src="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/codeql.yml/badge.svg?branch=main"></a> <a href="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/osv.yml"><img alt="OSV Scanner" src="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/osv.yml/badge.svg?branch=main"></a> <a href="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/security.yml"><img alt="Security lint" src="https://github.com/xTanTHaix/TAUHAULITY/actions/workflows/security.yml/badge.svg?branch=main"></a></p>
+
 <p align="center">
   <sub>Zero third-party runtime dependencies · English-only output · Windows Native + WSL2 Ubuntu/Debian · CPython 3.12 to 3.15 including the free-threaded builds · optional Rust silicon core with a transparent ctypes / pure-Python fallback</sub>
 </p>
@@ -69,14 +71,14 @@ The repository ships its release artifacts in `dist/`, built without a build bac
 
 ```console
 python scripts/build_release.py              # rebuilds wheel + zipapp + SHA256SUMS
-python -m pip install dist/tauhaulity-0.4.0-py3-none-any.whl
+python -m pip install dist/tauhaulity-0.4.1-py3-none-any.whl
 tauhaulity setup .
 tauhaulity
 ```
 
 ```console
 # an isolated install, if you prefer one:
-pipx install dist/tauhaulity-0.4.0-py3-none-any.whl
+pipx install dist/tauhaulity-0.4.1-py3-none-any.whl
 ```
 
 `dist/SHA256SUMS` covers both artifacts, and `tests/test_release_artifacts.py` re-verifies every PEP 427 RECORD digest, the console entry point and an end-to-end zipapp scan on each run.
@@ -328,6 +330,7 @@ python -m pytest tests/test_runtime_corpus.py -o addopts= -q
 | Memory baseline (capture, changed, missing, new, corrupt store, byte budget, read-only scan, probe) | 10 | 100% |
 | Watch backends (selection, detection, prompt stop, duration, freeze gating, protected PIDs, vanished file, idle CPU, canary) | 10 | 100% |
 
+<details><summary><strong>What each detector really is</strong> - mechanism and honest boundary per detector</summary>
 ### What each detector really is
 
 | Detector | Mechanism | Honest boundary |
@@ -344,6 +347,7 @@ python -m pytest tests/test_runtime_corpus.py -o addopts= -q
 | Backup guard | Classifies recognised backup-destruction commands (`vssadmin delete shadows`, `wbadmin delete`) from audit events, and probes restore points read only | It observes processes that run under the guard; an encoded command line is reported as encoded, not decoded |
 
 `tauhaulity baseline` accepts the current findings, including history findings, so a repository with a known legacy leak can still produce a clean signal without hiding anything new.
+</details>
 
 <details><summary><strong>Runtime protection added in 0.2.0</strong> - four capabilities that act on live behaviour</summary>
 
@@ -963,7 +967,7 @@ Every item below is a boundary of this version. Where the limit cannot be fixed 
 | Test suite | 22,088 lines across 79 files (71 test modules, plus conftest, the matrix runner and the corpora) |
 | Generator scripts | 4,574 lines across 7 files (demo assets, security assessment, threat-feed check, false-positive probe) |
 | Generated assets | 4 generated files in `docs/` (the session SVG, the scorecard and architecture diagrams and the demo source transcript), rewritten by one command; the hero illustration and the cached threat-feed sample are checked in as-is |
-| Repository | 182 files outside the build output: nothing in the tree is generated except `docs/` and `dist/`, and both are reproducible |
+| Repository | 187 files outside the build output: nothing in the tree is generated except `docs/` and `dist/`, and both are reproducible |
 | Rust crate | 914 lines across 6 files, zero external crates |
 | Build and matrix scripts | 517 lines across 3 files (release builder, zipapp builder, matrix runner) |
 
@@ -1076,7 +1080,7 @@ python -m pytest tests/test_release_artifacts.py
 
 | Artifact | Size | Purpose |
 |---|---|---|
-| `dist/tauhaulity-0.4.0-py3-none-any.whl` | 448 KB | Installable distribution with the `tauhaulity` console script |
+| `dist/tauhaulity-0.4.1-py3-none-any.whl` | 448 KB | Installable distribution with the `tauhaulity` console script |
 | `dist/tauhaulity.pyz` | 413 KB | Single file, no install, runs on any CPython 3.12+ |
 | `dist/SHA256SUMS` | - | Checksums for both artifacts |
 
@@ -1105,6 +1109,17 @@ python -m pytest tests/test_release_artifacts.py
 </details>
 
 ## Changelog
+
+<details>
+<summary><strong>0.4.1</strong></summary>
+
+**Security linting across the whole source tree, and one badge per workflow**
+
+- GitHub Actions is now four workflows instead of one: `ci.yml` (the test matrix plus the Rust crate), `codeql.yml` (CodeQL Python analysis), `osv.yml` (OSV Scanner) and `security.yml` (workflow and source security linting). Each has its own status badge in the README, and the CodeQL action moved from v3 to v4.
+- `security.yml` scans the source, not just the workflow files: zizmor and actionlint on `.github/workflows`, bandit and `ruff --select S` on the Python package and scripts, gitleaks over the full git history, Trivy filesystem scanning for secrets, misconfigurations and vulnerabilities, and `cargo audit` on the Rust crate. Every job is report-only for now, so a finding appears in the log without blocking a push.
+- README: the detector table is collapsed under a details block, the CI/CodeQL/OSV/security badges are dynamic GitHub Actions status badges, and the artifact table and install commands point at the rebuilt 0.4.1 wheel.
+
+</details>
 
 <details>
 <summary><strong>0.4.0</strong></summary>
